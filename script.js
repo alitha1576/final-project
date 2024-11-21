@@ -8,6 +8,9 @@ function fillCardData (movie) {
     const img = card.querySelector('.card-img-src');
     img.src = IMAGE_URL + movie.poster_path;
     img.alt = movie.title;
+    card.querySelector('.movie-title').innerHTML = movie.original_title;
+    card.querySelector('.movie-imdb').innerHTML = movie.vote_average.toFixed(1);
+
     card.removeAttribute('id');
     CONTAINER.appendChild(card);
 }

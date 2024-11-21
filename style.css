@@ -13,7 +13,6 @@
 }
 
 body {
-    font-family: 'Arial';
     min-height: 100vh;
     margin: 0;
     padding: 0;
@@ -27,6 +26,18 @@ body {
 
 header {
 background-color: var(--light-color);
+padding-left: 3rem;
+display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-evenly;
+    margin: 1rem 1rem;
 }
 
 #search {
@@ -45,17 +56,11 @@ background-color: var(--light-color);
     color: var(--second-text-color);
 }
 
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: space-between;
-    margin: 1rem 3rem;
-}
-
 .card {
     background-color: var(--light-color);
     width: 25%;
+    padding-bottom: 1.4rem;
+    cursor: pointer;
 }
 
 .card-img img {
@@ -64,19 +69,31 @@ background-color: var(--light-color);
 
 .card-descriprion span {
     font-size: 1.4rem;
+    height: fit-content;
 }
 
 .card-descriprion {
-    padding: 0.8rem;
+    display: flex;
+    padding: 0.6rem;
     justify-content: space-between;
-    align-items: center;
+    align-items: top;
     color: var(--text-color);
     background-color: var(--light-color);
+}
+
+.card-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 112px;
+    
 }
 
 .movie-title {
     width: 70%;
     font-weight: 600;
+    height: 60px; 
+    overflow: hidden;
 }
 
 .movie-imdb {
@@ -87,20 +104,34 @@ background-color: var(--light-color);
 }
 
 .watchlist {
-    width: 90%;
+    width: 80%;
     display: block;
-    margin: 0 0.8rem;
+    margin: 0 auto;
     padding: 0.5rem;
     border-radius: 10px;
     background-color: var(--button-color);
     border: none;
     color: var(--dark-color);
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 500;
 }
 
 .watchlist:hover {
     background-color: var(--button-hover-color);
+    color: var(--light-color);
 }
 
 #template {
     display: none;
+}
+
+footer {
+    background-color: var(--light-color);
+padding-left: 3rem;
+display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--second-text-color);
+    padding: 1rem;
+
 }
