@@ -5,9 +5,9 @@ const TEMPLATE = document.getElementById('template');
 const CONTAINER = document.querySelector('.container');
 
 const MODAL_TEMPLATE = document.getElementById('modal-template');
-const MOVIE_URL = 'https://api.themoviedb.org/3/movie/'
+const MOVIE_URL = 'https://api.themoviedb.org/3/movie/';
 
-CONTAINER.addEventListener('click', async function(event) {
+CONTAINER.addEventListener('click', async function (event) {
     const card = event.target.closest('.card');
     if (!card) {
         return;
@@ -15,7 +15,26 @@ CONTAINER.addEventListener('click', async function(event) {
     const id = card.getAttribute('data-id');
     const data = await getMovieData(id);
     fillModalData(data);
+    document.querySelector('.modal-background').classList.add('overlay');
+    document.body.classList.add('prevent-scroll');
+    const overlay = document.querySelector('.overlay');
+    const closeButton = document.querySelector('.close-button');
+
+    closeButton.addEventListener('click', function () {
+        document.querySelector('.modal').remove();
+        document.querySelector('.modal-background').classList.remove('overlay');
+        document.body.classList.remove('prevent-scroll');
+    });
+    
+    if (overlay) {
+        overlay.addEventListener('click', function () {
+            document.querySelector('.modal').remove();
+            document.querySelector('.modal-background').classList.remove('overlay');
+            document.body.classList.remove('prevent-scroll');
+        });
+    }
 })
+
 
 function fillModalData(movie) {
     const modal = MODAL_TEMPLATE.cloneNode(true);
@@ -27,7 +46,6 @@ function fillModalData(movie) {
     modal.querySelector('.modal-movie-year').innerHTML = movie.release_date.slice(0, -6);
     modal.querySelector('.modal-movie-genre').innerHTML = movie.genres.map(item => item.name).join(', ');
     modal.querySelector('.modal-movie-description').innerHTML = movie.overview;
-
     modal.removeAttribute('id');
     CONTAINER.appendChild(modal);
 }
@@ -47,7 +65,7 @@ function fillCardData(movie) {
 async function getMovieListData() {
     const res = await fetch(URL);
     const data = await res.json();
-    data.results.forEach(movie => {       
+    data.results.forEach(movie => {
         fillCardData(movie);
     });
 }
