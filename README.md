@@ -19,6 +19,8 @@ This is a website where users can access information about movies. Movie cards a
 - **Closing the Modal:** The modal can be closed by clicking the close button in the top-left corner of the modal or by clicking on the darkened background outside the modal. Once closed:
   - Scrolling functionality is restored.
   - The background dimming disappears.
+- **Add to Watchlist:** Clicking the +Add to watchlist button on a movie card adds the movie to the Watchlist. The button text changes to -Remove from watchlist, allowing the user to remove the movie if desired.
+- **View Watchlist:** Clicking the Watchlist button in the header displays all the movies added to the Watchlist as cards. These cards are dynamically loaded from localStorage.
 
 - **Search Functionality:** A search bar (input Search) allows users to look up movies by title.
 When a query is entered:
@@ -39,3 +41,5 @@ The website fetches data from the [TMDb API](https://api.themoviedb.org) through
 1. **Latest Movies:** To populate the homepage with a list of the latest movies.
 2. **Movie Details:** To fetch detailed information for the modal window when a movie card is clicked.
 3. **Search Functionality:** To search for movies using the search field.
+
+
