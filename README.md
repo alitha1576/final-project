@@ -20,6 +20,15 @@ This is a website where users can access information about movies. Movie cards a
   - Scrolling functionality is restored.
   - The background dimming disappears.
 
+- **Search Functionality:** A search bar (input Search) allows users to look up movies by title.
+When a query is entered:
+- The current movie cards on the page are cleared.
+- New cards matching the search query are dynamically loaded onto the page.
+- While the data is being fetched from the API, a loading spinner is displayed to indicate progress.
+
+- **Home Button and Logo:**  Clicking on the Home button or the website's logo clears the input field, removes any search results or the Watchlist page content, and reloads the homepage with the default set of movie cards.
+
+
 ## Responsiveness
 
 The website dynamically adjusts its layout to provide a seamless experience on different screen sizes, ensuring compatibility across devices.

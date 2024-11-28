@@ -8,6 +8,18 @@ const CONTAINER = document.querySelector('.container');
 const MODAL_TEMPLATE = document.getElementById('modal-template');
 const MOVIE_URL = 'https://api.themoviedb.org/3/movie/';
 
+const HOME_BUTTON = document.getElementById('home-button');
+
+document.querySelector('.logo').addEventListener('click', () => {
+    document.querySelector('#search').value='';
+    getMovieListData();
+});
+
+HOME_BUTTON.addEventListener('click', () => {
+    document.querySelector('#search').value='';
+    getMovieListData();
+});
+
 CONTAINER.addEventListener('click', async function (event) {
     const card = event.target.closest('.card');
     if (!card) {
