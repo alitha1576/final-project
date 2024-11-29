@@ -3,6 +3,7 @@
 ## What is it?
 
 [Movie-App](https://alitha1576.github.io/final-project/index.html)
+
 This is a website where users can access information about movies. Movie cards are dynamically updated with data fetched from the [TMDb API](https://api.themoviedb.org).
 
 ## Expected Behavior
