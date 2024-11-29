@@ -32,7 +32,6 @@ document.getElementById('watchlist-button').addEventListener('click', () => {
         fillCardData(movie);
     });
 
-
 })
 
 function toggleWatchList(data) {
@@ -126,7 +125,7 @@ function fillCardData(movie) {
 
     const watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
     if (watchlist.some(item => item.id === movie.id)) {
-        card.querySelector('.watchlist').innerHTML="- Remove from watchlist";
+        card.querySelector('.watchlist').innerHTML = "- Remove from watchlist";
     }
 
     CONTAINER.appendChild(card);
@@ -138,16 +137,18 @@ async function getMovieListData(query = '') {
         url = SEARCH_URL + query;
     }
     CONTAINER.innerHTML = '<img src="assets/svg/spinner.svg" alt="spinner" class="spinner">';
-   try { const res = await fetch(url);
-    const data = await res.json();
-    
-    CONTAINER.innerHTML = '';
-    data.results.forEach(movie => {
-        fillCardData(movie);
-    });}
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+
+        CONTAINER.innerHTML = '';
+        data.results.forEach(movie => {
+            fillCardData(movie);
+        });
+    }
     catch (error) {
         CONTAINER.innerHTML = `<span style="color:white">${error.message}</span>`;
-        }
+    }
 }
 getMovieListData();
 
